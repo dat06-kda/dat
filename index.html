@@ -16,41 +16,6 @@
 </head>
 <body>
 <canvas id="canvas"></canvas>
-<div id="messageBox" style="
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.95);
-    color: #000;
-    font-size: 1.5rem;
-    padding: 20px 30px;
-    border-radius: 10px;
-    display: none;
-    z-index: 1000;
-    text-align: center;
-    max-width: 90%;
-">
-
-    <div id="closeBtn" style="
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 1.2rem;
-        color: #555;
-        cursor: pointer;
-        font-weight: bold;
-    ">×</div>
-
-   Chào bạn Thư , đây là món quà tớ muốn làm dành tặng cho cậu . Và tớ dạo gần đây tớ có ít chuyện rối lòng .
-   Đó là không biết cậu còn thích tớ hay không.Nhiều lúc tớ cảm thấy mình đang làm phiền cậu nên cảm xúc tớ nhạt dần,
-   Nhưng đến hôm qua cậu nhắn và chúng mình có tâm sự thì tối qua tớ bối rối đôi chút , liệu tớ vẫn còn thích cậu không , vì tớ cảm thấy lòng như cái gì đó nó đề nặng vậy . 
-   Tớ thấy mình đưa ra quyết định khá là vội vàng , tớ thấy ình cần thêm thời gian để suy nghĩ
-   Nói xong những điều này ,cậu còn tình cảm với tớ thì có thể cho tớ thêm thời gian suy nghĩ về việc này được không. Nếu không còn thì nói với tớ , không sao cả
-
-
-
-</div>
 
 
 <script>
@@ -159,21 +124,7 @@ function animate() {
             drawFlamingStar(star.x, star.y, 5, star.radius * 3, star.radius * 1.5, star.color, star.angle);
         }
     });
-// Kiểm tra nếu tất cả sao đã kết nối và hiển thị thông báo sau 3 giây
-if (!messageShown) {
-    const allConnected = stars.every(star => star.connected);
-    if (allConnected) {
-        if (allConnectedTime === null) {
-            allConnectedTime = Date.now();  // Bắt đầu đếm thời gian
-        } else if (Date.now() - allConnectedTime >= 3000) {  // Đủ 3 giây
-            document.getElementById('messageBox').style.display = 'block';
-            messageShown = true;
-        }
-    }
-}
-document.getElementById('closeBtn').onclick = function() {
-    document.getElementById('messageBox').style.display = 'none';
-};
+
 
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = 'rgba(255, 180, 220, 0.4)';
